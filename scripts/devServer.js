@@ -2,16 +2,16 @@ import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
 
-import config from '../webpack.config.dev';
+import webpackConfig from '../webpack.config.dev';
 
 
 const app = express();
-const compiler = webpack(config);
+const compiler = webpack(webpackConfig);
 const port = 3000;
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
-  publicPath: config.output.publicPath,
+  publicPath: webpackConfig.output.publicPath,
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));

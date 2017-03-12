@@ -5,13 +5,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     './index.js',
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'src'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -36,7 +35,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('styles.css'),
   ],
 };
